@@ -40,14 +40,12 @@ def pregunta_si_es_usuario_nuevo_o_no():
     from rich.panel import Panel
     from rich.text import Text
 
-    # Inicializamos la consola de Rich
+    
     console = Console()
 
-    # Definimos el mensaje con formato ANSI (naranja) y estilo Rich
-    # El código [rgb(255,165,0)] o [orange1] funciona de maravilla
     mensaje = Text("¿Es usuario nuevo?", style="bold orange1")
 
-    # Creamos y mostramos el panel
+    
     console.print(
         Panel(
             mensaje,
@@ -78,4 +76,68 @@ def limpiar_pantalla():
      os.system("cls")  # Windows
      os.system("clear")  # Linux/Mac
 
- 
+def subtitulo_panel(texto):
+    from rich.console import Console
+    from rich.panel import Panel
+    from rich.align import Align
+
+    console = Console()
+
+    console.print(
+        Panel(
+            Align.center(texto),
+            border_style="cyan",
+            style="bold white",
+            padding=(1, 2)
+        )
+    )
+    
+from rich.console import Console
+from rich.panel import Panel
+from rich.align import Align
+
+console = Console()
+
+
+def mensaje_error(texto):
+    console.print(
+        Panel(
+            Align.center(texto),
+            border_style="red",
+            style="bold red",
+            padding=(1, 2)
+        )
+    )
+
+
+def mensaje_exito(texto):
+    console.print(
+        Panel(
+            Align.center(texto),
+            border_style="green",
+            style="bold green",
+            padding=(1, 2)
+        )
+    )
+
+
+def mensaje_info(texto):
+    console.print(
+        Panel(
+            Align.center(texto),
+            border_style="white",
+            style="bold white",
+            padding=(1, 2)
+        )
+    )
+
+
+def mensaje_advertencia(texto):
+    console.print(
+        Panel(
+            Align.center(texto),
+            border_style="yellow",
+            style="bold yellow",
+            padding=(1, 2)
+        )
+    )
